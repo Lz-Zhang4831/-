@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张立哲 - 个人简介</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e8ecf1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 24px;
+        }
+
+        /* A4 风格卡片 */
+        .resume-card {
+            max-width: 700px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 48px 56px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* 姓名 - 突出 */
+        .name {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #0b1a33;
+            margin-bottom: 6px;
+            border-bottom: 4px solid #2a7de1;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+
+        .subhead {
+            margin-top: 8px;
+            font-size: 18px;
+            color: #3e5a76;
+            font-weight: 400;
+            border-bottom: 1px solid #dce3ec;
+            padding-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+        }
+
+        .subhead span {
+            background: #f0f4fb;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 15px;
+            color: #1f3a5f;
+        }
+
+        /* 信息区块 */
+        .section {
+            margin-top: 32px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0b1a33;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, #bcc9db, transparent);
+        }
+
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: baseline;
+            font-size: 17px;
+            line-height: 1.6;
+            padding: 6px 0;
+            border-bottom: 1px dashed #edf2f9;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            width: 100px;
+            font-weight: 500;
+            color: #1f3a5f;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: #1e2c41;
+            font-weight: 400;
+        }
+
+        .info-value strong {
+            font-weight: 600;
+            color: #0b1a33;
+        }
+
+        /* 兴趣标签（更生动） */
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+            margin-top: 6px;
+        }
+
+        .interest-tag {
+            background: #ecf3fe;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #134b8a;
+            letter-spacing: 0.3px;
+            box-shadow: 0 1px 4px rgba(0, 20, 40, 0.04);
+        }
+
+        .interest-tag i {
+            font-style: normal;
+            margin-right: 6px;
+        }
+
+        /* 联系方式单独突出 */
+        .contact-box {
+            margin-top: 28px;
+            background: #f5f9ff;
+            border-radius: 18px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 30px;
+            border-left: 6px solid #2a7de1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 17px;
+            color: #0b1a33;
+        }
+
+        .contact-item .emoji {
+            font-size: 20px;
+        }
+
+        .contact-item .value {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* 打印优化 - 生成PDF时保留 */
+        @media print {
+            body {
+                background: white;
+                padding: 0.3in;
+                display: block;
+            }
+            .resume-card {
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                padding: 24px 32px;
+                max-width: 100%;
+            }
+            .section-title::after {
+                background: #ccc;
+            }
+            .interest-tag {
+                background: #eef3fa;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .contact-box {
+                background: #f3f7fe;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border-left-color: #1a5bbf;
+            }
+            .subhead span {
+                background: #e9eef6;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* 手机适配 */
+        @media (max-width: 550px) {
+            .resume-card {
+                padding: 28px 20px;
+            }
+            .name {
+                font-size: 32px;
+            }
+            .info-label {
+                width: 80px;
+                font-size: 15px;
+            }
+            .contact-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .interest-tag {
+                padding: 6px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-card">
+
+        <!-- 姓名 -->
+        <div class="name">张立哲</div>
+
+        <!-- 专业 + 微标签 -->
+        <div class="subhead">
+            <span>📘 集成电路学院</span>
+            <span>⚡ 微电子科学与工程</span>
+        </div>
+
+        <!-- 主要信息：专业已在上方展示，此处用“所学专业”完整呈现 -->
+        <div class="section">
+            <div class="section-title">📋 个人信息</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">所学专业</span>
+                    <span class="info-value"><strong>微电子科学与工程</strong> · 集成电路学院</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 兴趣 -->
+        <div class="section">
+            <div class="section-title">🎯 兴趣与爱好</div>
+            <div class="interest-tags">
+                <span class="interest-tag">⚽ 足球</span>
+                <span class="interest-tag">📷 摄影</span>
+                <span class="interest-tag">🚴 骑行</span>
+                <span class="interest-tag">🎮 电脑游戏</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 15px; color: #4f6582; opacity: 0.85;">
+                ⚡ 热爱运动与创作，也享受策略与沉浸式体验
+            </div>
+        </div>
+
+        <!-- 联系方式 (突出) -->
+        <div class="contact-box">
+            <span class="contact-item">
+                <span class="emoji">📞</span>
+                <span class="value">13570350633</span>
+            </span>
+            <span class="contact-item">
+                <span class="emoji">✉️</span>
+                <span class="value">zhang.lizhe@edu.cn</span>
+            </span>
+            <span class="contact-item" style="opacity: 0.7; font-size: 15px;">
+                <span class="emoji">📍</span> 广州
+            </span>
+        </div>
+
+        <!-- 底部装饰（极简） -->
+        <div style="margin-top: 30px; font-size: 13px; color: #a0b3cc; text-align: right; border-top: 1px solid #eaeff6; padding-top: 16px; letter-spacing: 1px;">
+            — 集成电路·微电子 —
+        </div>
+    </div>
+</body>
+</html>
