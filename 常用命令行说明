@@ -1,0 +1,6 @@
+常用命令行说明：
+cd (Change Directory)：用于切换当前工作目录，例如 cd my-project 进入项目文件夹。
+ls (List)：用于列出当前目录下的所有文件和文件夹，查看项目结构。
+mkdir (Make Directory)：用于创建新的文件夹。
+git 常用命令：git clone 拉取远程仓库代码；git add 将更改添加到暂存区；
+git commit 将暂存区内容提交到本地仓库；git push 将本地提交推送到远程 GitHub 仓库。
